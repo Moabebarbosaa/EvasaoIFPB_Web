@@ -27,10 +27,8 @@ abstract class _StudentStore with Store {
       final resultStudents = await StudentsRepository().fetchAllStudents();
       students.addAll(resultStudents.students);
       studentsCount = students.length;
-      //errorPopularScreen = false;
     } catch (e) {
-      //errorPopularScreen = true;
-      //print(e);
+      print(e);
     }
   }
 
