@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class StudentModel {
-  final String id;
+  final int id;
   final String matricula;
   final String curso;
   final double cre;

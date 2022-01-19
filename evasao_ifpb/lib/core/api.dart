@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 const kBaseUrl = 'http://143.198.112.106:3000';
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNreWM1YXI0YzAwMTRvaGl4dzR0ZXhzeGoiLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInJvbGUiOiJBRE1JTiIsInN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjQyMDI4NDY4LCJleHAiOjE2NDIyMDEyNjh9.ecyhDmzRfQ0Q94PgocyhBItLkwxjEO7uhiGf_AL72rI';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0NDViZDBkLWE2Y2YtNDgxOS1iMWVjLWJjMDY5NjY2ZWEwZCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6IkFETUlOIiwic3RhdHVzIjp0cnVlLCJpYXQiOjE2NDI0NjAzMzQsImV4cCI6MTY0MjYzMzEzNH0.Srmm4LAgCPI6S81wxet3n1IAEeLRbG8UPjIAVwT2A0M';
 
 final kDioOptions = BaseOptions(
     baseUrl: kBaseUrl,

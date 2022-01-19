@@ -15,26 +15,26 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(25),
-      child: SizedBox(
-        height: 30,
-        width: 150,
-        child: TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            primary: selected ? Colors.white : const Color(0xFF241424).withOpacity(0.3),
-            backgroundColor: selected ? Colors.green : Colors.white,
-            onSurface: Colors.grey,
-          ),
-          child: Text(
-            title.toUpperCase(),
-            style: TextStyle(
-              color: selected ? Colors.white : const Color(0xFF241424).withOpacity(0.3),
-              fontWeight: selected ? FontWeight.normal : FontWeight.bold,
+        borderRadius: BorderRadius.circular(25),
+        child: SizedBox(
+          height: 30,
+          width: 150,
+          child: TextButton(
+            onPressed: onPressed,
+            style: TextButton.styleFrom(
+              primary: selected ? Colors.white : const Color(0xFF241424).withOpacity(0.3),
+              backgroundColor: selected ? Colors.green : Colors.white,
+              onSurface: Colors.grey,
+            ),
+            child: Text(
+              title.toUpperCase(),
+              style: TextStyle(
+                color: selected ? Colors.white : const Color(0xFF241424).withOpacity(0.3),
+                fontWeight: selected ? FontWeight.normal : FontWeight.bold,
+              ),
             ),
           ),
-        ),
-      )
+        )
     );
   }
 }

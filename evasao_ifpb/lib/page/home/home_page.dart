@@ -11,25 +11,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              Icons.filter_alt,
-              color: Colors.white,
-              size: 30,
-            ),
-            CustomText(
-              text: '  Filtros |  ',
-              corText: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-            )
-          ],
-        )
-      ],
+    return Container(
+      margin: const EdgeInsets.all(10),
+      color: Colors.red,
+      height: 100,
     );
   }
 }
