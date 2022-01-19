@@ -20,14 +20,14 @@ class StudentsPage extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 40, right: 40, top: 10),
-            child: Card(
-              elevation: 20,
-              color: Colors.green,
-              child: Container(
-                margin: const EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Padding(
+            child: Column(
+              children: [
+                Card(
+                  elevation: 20,
+                  color: Colors.green,
+                  child: Container(
+                    margin: const EdgeInsets.all(10),
+                    child: Padding(
                       padding: const EdgeInsets.only(left: 10, right: 30, top: 20, bottom: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,19 +37,23 @@ class StudentsPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Divider(color: Colors.white),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 50, right: 20),
-                      child: Header(),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                Card(
+                  color: Colors.green,
+                  elevation: 20,
+                  child: Container(
+                    height: 30,
+                    child: Header(),
+                  ),
+                ),
+              ],
             ),
           ),
+
           _studentController.loadingStudentPage ?
            SizedBox(
-             height: size.height - 220,
+             height: size.height - 230,
              child: const Center(
                 child: CircularProgressIndicator(
                   backgroundColor: Colors.green,
@@ -58,7 +62,7 @@ class StudentsPage extends StatelessWidget {
               ),
           ) :
           SizedBox(
-            height: size.height - 220,
+            height: size.height - 230,
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               physics: const ClampingScrollPhysics(),
