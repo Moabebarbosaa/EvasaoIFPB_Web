@@ -7,6 +7,7 @@ part 'student_store.g.dart';
 class StudentStore = _StudentStore with _$StudentStore;
 
 abstract class _StudentStore with Store {
+
   _StudentStore() {
     autorun((_) async {
       await loadScreen();
@@ -22,11 +23,14 @@ abstract class _StudentStore with Store {
   int studentsCount = 0;
 
   @action
-  Future<void> _fetchAllStudents() async {
+  Future<void> fetchAllStudents(String course) async {
     try {
-      final resultStudents = await StudentsRepository().fetchAllStudents();
+      loadingStudentPage = true;
+      final resultStudents = await StudentsRepository().fetchAllStudents(course);
+      if (students.isNotEmpty) students = ObservableList<StudentModel>();
       students.addAll(resultStudents.students);
       studentsCount = students.length;
+      loadingStudentPage = false;
     } catch (e) {
       print(e);
     }
@@ -34,7 +38,7 @@ abstract class _StudentStore with Store {
 
   Future<void> loadScreen() async {
     loadingStudentPage = true;
-    await _fetchAllStudents();
+    await fetchAllStudents('computacao');
     loadingStudentPage = false;
   }
 

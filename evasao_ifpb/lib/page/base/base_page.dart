@@ -28,53 +28,47 @@ class _BasePageState extends State<BasePage> {
   Widget build(BuildContext context) {
     return Observer(builder: (_){
       return Scaffold(
-        backgroundColor: Colors.green,
-        body: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  CustomAppBar(),
-                  if (pageStore.page == 0)
-                    const HomePage()
-                  else if (pageStore.page == 1)
-                    StudentsPage()
-                  else if (pageStore.page == 2)
+          backgroundColor: Colors.green,
+          body: Column(
+            children: [
+              CustomAppBar(),
+              if (pageStore.page == 0)
+                const HomePage()
+              else if (pageStore.page == 1)
+                StudentsPage()
+              else if (pageStore.page == 2)
+                  Container(
+                    height: 200,
+                    color: Colors.blue,
+                  )
+                else
+                  Column(
+                    children: [
                       Container(
                         height: 200,
-                        color: Colors.blue,
-                      )
-                    else
-                      Column(
-                        children: [
-                          Container(
-                            height: 200,
-                            color: Colors.blueGrey,
-                          ),
-                          Container(
-                            height: 200,
-                            color: Colors.red,
-                          ),
-                          Container(
-                            height: 200,
-                            color: Colors.orange,
-                          ),
-                          Container(
-                            height: 200,
-                            color: Colors.pink,
-                          ),
-                          Container(
-                            height: 200,
-                            color: Colors.yellow,
-                          ),
+                        color: Colors.blueGrey,
+                      ),
+                      Container(
+                        height: 200,
+                        color: Colors.red,
+                      ),
+                      Container(
+                        height: 200,
+                        color: Colors.orange,
+                      ),
+                      Container(
+                        height: 200,
+                        color: Colors.pink,
+                      ),
+                      Container(
+                        height: 200,
+                        color: Colors.yellow,
+                      ),
 
-                        ],
-                      )
-                ],
-              ),
-            )
-          ],
-        )
+                    ],
+                  )
+            ],
+          )
       );
     });
   }

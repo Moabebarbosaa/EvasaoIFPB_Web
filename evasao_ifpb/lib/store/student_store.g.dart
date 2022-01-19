@@ -40,12 +40,13 @@ mixin _$StudentStore on _StudentStore, Store {
     });
   }
 
-  final _$_fetchAllStudentsAsyncAction =
-      AsyncAction('_StudentStore._fetchAllStudents');
+  final _$fetchAllStudentsAsyncAction =
+      AsyncAction('_StudentStore.fetchAllStudents');
 
   @override
-  Future<void> _fetchAllStudents() {
-    return _$_fetchAllStudentsAsyncAction.run(() => super._fetchAllStudents());
+  Future<void> fetchAllStudents(String course) {
+    return _$fetchAllStudentsAsyncAction
+        .run(() => super.fetchAllStudents(course));
   }
 
   @override

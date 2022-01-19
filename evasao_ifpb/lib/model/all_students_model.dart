@@ -12,14 +12,11 @@ class AllStudentsModel {
   factory AllStudentsModel.fromJson(String str) =>
       AllStudentsModel.fromMap(json.decode(str));
 
-  factory AllStudentsModel.fromMap(List<dynamic> json) =>
+  factory AllStudentsModel.fromMap(Map<String, dynamic> json) =>
       AllStudentsModel(
         students: List<StudentModel>.from(
-            json.map((x) => StudentModel.fromMap(x))),
+            json["result"].map((x) => StudentModel.fromMap(x)
+            )
+        ),
       );
-
-  @override
-  String toString() {
-    return 'PopularMoviesModel{movies: $students}';
-  }
 }
