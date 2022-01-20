@@ -1,6 +1,9 @@
 import 'package:evasao_ifpb/Components/custom_text.dart';
 import 'package:evasao_ifpb/model/student_model.dart';
+import 'package:evasao_ifpb/page/students/components/show_dialog.dart';
 import 'package:flutter/material.dart';
+
+import 'custom_dialog.dart';
 
 class StudentCard extends StatelessWidget {
 
@@ -34,10 +37,19 @@ class StudentCard extends StatelessWidget {
           ),
         ),
       ),
-      onTap: () {
-        // todo: Colocar aqui o JumpToPage de detail do student
-        print(student.id);
-      },
+      onTap: () => showGeneralDialog(
+        barrierDismissible: false,
+        context: context,
+        barrierColor: Colors.black54,
+        transitionDuration: Duration(milliseconds: 400),
+        transitionBuilder: (context, a1, a2, child) {
+          return bodyShowDialog(a1);
+        },
+        pageBuilder: (BuildContext context, Animation animation,
+            Animation secondaryAnimation) {
+          return Center();
+        },
+      ),
     );
   }
 }
