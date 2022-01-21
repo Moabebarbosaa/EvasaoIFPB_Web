@@ -1,3 +1,4 @@
+import 'package:evasao_ifpb/model/student_model.dart';
 import 'package:evasao_ifpb/page/students/components/custom_radio.dart';
 import 'package:evasao_ifpb/page/students/components/header.dart';
 import 'package:evasao_ifpb/page/students/components/search.dart';
@@ -11,6 +12,7 @@ class StudentsPage extends StatelessWidget {
   StudentsPage({Key? key}) : super(key: key);
 
   final StudentStore _studentController = GetIt.I<StudentStore>();
+  List<StudentModel> studentsTeste = [StudentModel(id: 13, matricula: "matricula", curso: "curso", cre: 13.4, idade: 34)];
 
   @override
   Widget build(BuildContext context) {
@@ -67,10 +69,12 @@ class StudentsPage extends StatelessWidget {
               scrollDirection: Axis.vertical,
               physics: const ClampingScrollPhysics(),
               shrinkWrap: true,
-              itemCount: _studentController.students.length,
+              itemCount: studentsTeste.length,
+              // itemCount: _studentController.students.length,
               padding: const EdgeInsets.only(left: 40, right: 40),
               itemBuilder: (BuildContext context, int index) {
-                final student = _studentController.students[index];
+                // final student = _studentController.students[index];
+                final student = studentsTeste[index];
                 return StudentCard(student: student);
               }
             ),
