@@ -8,6 +8,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: const [
@@ -16,15 +17,19 @@ class Header extends StatelessWidget {
           corText: Colors.white,
         ),
         CustomText(
-          text: '                   CURSO',
+          text: 'CURSO',
           corText: Colors.white,
         ),
         CustomText(
-          text: '                     CRE',
+          text: 'CRE',
           corText: Colors.white,
         ),
         CustomText(
           text: 'IDADE',
+          corText: Colors.white,
+        ),
+        CustomText(
+          text: 'RISCO DE EVASÃO',
           corText: Colors.white,
         ),
       ],

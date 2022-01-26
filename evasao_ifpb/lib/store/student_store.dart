@@ -17,10 +17,10 @@ abstract class _StudentStore with Store {
   ObservableList<StudentModel> students = ObservableList<StudentModel>();
 
   @observable
-  bool loadingStudentPage = true;
+  StudentModel? studentModel;
 
   @observable
-  int studentsCount = 0;
+  bool loadingStudentPage = true;
 
   @action
   Future<void> fetchAllStudents(String course) async {
@@ -29,9 +29,22 @@ abstract class _StudentStore with Store {
       final resultStudents = await StudentsRepository().fetchAllStudents(course);
       if (students.isNotEmpty) students = ObservableList<StudentModel>();
       students.addAll(resultStudents.students);
-      studentsCount = students.length;
       loadingStudentPage = false;
     } catch (e) {
+      loadingStudentPage = true;
+      print(e);
+    }
+  }
+
+  @action
+  Future<void> fetchStudentById(int id) async {
+    try {
+      loadingStudentPage = true;
+      final result = await StudentsRepository().fetchStudentById(id);
+      studentModel = result;
+      loadingStudentPage = false;
+    } catch (e) {
+      loadingStudentPage = true;
       print(e);
     }
   }
