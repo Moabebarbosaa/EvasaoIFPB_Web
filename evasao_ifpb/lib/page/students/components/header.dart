@@ -17,15 +17,15 @@ class Header extends StatelessWidget {
           corText: Colors.white,
         ),
         CustomText(
-          text: 'CURSO',
+          text: '                       CURSO',
           corText: Colors.white,
         ),
         CustomText(
-          text: 'CRE',
+          text: '                                             CRE',
           corText: Colors.white,
         ),
         CustomText(
-          text: 'IDADE',
+          text: '           IDADE',
           corText: Colors.white,
         ),
         CustomText(

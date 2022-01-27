@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
+import 'components/generate_rows.dart';
+
 class StudentsPage extends StatelessWidget {
   StudentsPage({Key? key}) : super(key: key);
 
@@ -27,16 +29,10 @@ class StudentsPage extends StatelessWidget {
                   color: Colors.green,
                   child: Container(
                     margin: const EdgeInsets.all(10),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
+                    child: const Padding(
+                      padding: EdgeInsets.only(
                           left: 10, right: 30, top: 20, bottom: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          CustomRadio(),
-                          //Search(),
-                        ],
-                      ),
+                      child: CustomRadio(),
                     ),
                   ),
                 ),
@@ -61,8 +57,6 @@ class StudentsPage extends StatelessWidget {
                   height: size.height - 230,
                   child: ListView.builder(
                       scrollDirection: Axis.vertical,
-                      physics: const ClampingScrollPhysics(),
-                      shrinkWrap: true,
                       itemCount: _studentController.students.length,
                       padding: const EdgeInsets.only(left: 40, right: 40),
                       itemBuilder: (BuildContext context, int index) {

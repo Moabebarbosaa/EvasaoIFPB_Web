@@ -18,43 +18,43 @@ class StudentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: Card(
-        elevation: 20,
-        child: SizedBox(
-          height: 80,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CustomText(
-                text: student.matricula,
-                fontWeight: FontWeight.bold,
-                fontSize: 17,
-              ),
-              CustomText(text: student.curso),
-              CustomText(text: student.cre.toString()),
-              CustomText(text: student.idade.toString()),
-              CustomText(text: 'Risco de Evasão'),
-            ],
-          ),
-        ),
-      ),
       onTap: () {
         _studentController.fetchStudentById(student.id);
         showGeneralDialog(
-        barrierDismissible: false,
-        context: context,
-        barrierColor: Colors.black54,
-        transitionDuration: const Duration(milliseconds: 400),
-        transitionBuilder: (context, a1, a2, child) {
+          barrierDismissible: false,
+          context: context,
+          barrierColor: Colors.black54,
+          transitionDuration: const Duration(milliseconds: 400),
+          transitionBuilder: (context, a1, a2, child) {
 
-          return bodyShowDialog(a1);
-        },
-        pageBuilder: (BuildContext context, Animation animation,
-            Animation secondaryAnimation) {
-          return const Center();
-        },
+            return bodyShowDialog(a1);
+          },
+          pageBuilder: (BuildContext context, Animation animation,
+              Animation secondaryAnimation) {
+            return const Center();
+          },
         );
-      }
+      },
+      child: Card(
+          elevation: 20,
+          child: SizedBox(
+            height: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CustomText(
+                  text: student.matricula,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
+                CustomText(text: student.curso),
+                CustomText(text: student.cre.toString()),
+                CustomText(text: student.idade.toString()),
+                CustomText(text: 'Risco de Evasão'),
+              ],
+            ),
+          ),
+        ),
     );
   }
 }
