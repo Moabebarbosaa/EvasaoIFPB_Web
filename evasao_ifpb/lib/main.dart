@@ -1,4 +1,5 @@
 import 'package:evasao_ifpb/page/base/base_page.dart';
+import 'package:evasao_ifpb/store/home_store.dart';
 import 'package:evasao_ifpb/store/metrics_store.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
 import 'package:evasao_ifpb/store/student_store.dart';
@@ -14,6 +15,7 @@ void setupLocators() {
   GetIt.I.registerSingleton(PageStore());
   GetIt.I.registerSingleton(StudentStore());
   GetIt.I.registerSingleton(MetricsStore());
+  GetIt.I.registerSingleton(HomeStore());
 }
 
 class MyApp extends StatelessWidget {

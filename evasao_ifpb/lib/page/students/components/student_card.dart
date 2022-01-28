@@ -26,7 +26,6 @@ class StudentCard extends StatelessWidget {
           barrierColor: Colors.black54,
           transitionDuration: const Duration(milliseconds: 400),
           transitionBuilder: (context, a1, a2, child) {
-
             return bodyShowDialog(a1);
           },
           pageBuilder: (BuildContext context, Animation animation,

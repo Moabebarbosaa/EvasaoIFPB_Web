@@ -12,22 +12,22 @@ class BuildGraph{
   BuildGraph(this.context);
 
 
-  Container buildContainerIni(String nome, int valor){
-    return Container(
-      width: MediaQuery.of(context).size.width/10,
-      height: MediaQuery.of(context).size.height/10,
-      child: Card(
-        elevation: 4,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomText(text: nome,fontSize: MediaQuery.of(context).size.width/100, fontWeight: FontWeight.bold,),
-            CustomText(text: valor.toString(),fontSize: MediaQuery.of(context).size.width/80),
-          ],
-        ),
-      ),
-    );
-  }
+  // Container buildContainerIni(String nome, int valor){
+  //   return Container(
+  //     width: MediaQuery.of(context).size.width/10,
+  //     height: MediaQuery.of(context).size.height/10,
+  //     child: Card(
+  //       elevation: 20,
+  //       child: Column(
+  //         mainAxisAlignment: MainAxisAlignment.center,
+  //         children: [
+  //           CustomText(text: nome,fontSize: MediaQuery.of(context).size.width/100, fontWeight: FontWeight.bold,),
+  //           CustomText(text: valor.toString(),fontSize: MediaQuery.of(context).size.width/80),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Container buildContainerPizza(String nome,List<int> valores,List<String> variaveis){
     return Container(
@@ -62,7 +62,7 @@ class BuildGraph{
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomText(text: nome,fontSize: MediaQuery.of(context).size.width/80, fontWeight: FontWeight.bold,),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width/5,
               height: MediaQuery.of(context).size.height/3.5,
               child: BarHorizontal.create(valores,variaveis),

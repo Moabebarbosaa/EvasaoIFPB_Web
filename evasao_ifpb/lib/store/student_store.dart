@@ -37,6 +37,20 @@ abstract class _StudentStore with Store {
   }
 
   @action
+  Future<void> filterMatriculas(String matricula) async {
+    try {
+      loadingStudentPage = true;
+
+      print(students[0].matricula.contains(matricula));
+
+      loadingStudentPage = false;
+    } catch (e) {
+      loadingStudentPage = true;
+      print(e);
+    }
+  }
+
+  @action
   Future<void> fetchStudentById(int id) async {
     try {
       loadingStudentPage = true;

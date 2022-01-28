@@ -1,8 +1,11 @@
+import 'package:evasao_ifpb/store/student_store.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class Search extends StatelessWidget {
   Search({Key? key}) : super(key: key);
   final TextEditingController textEditingController = TextEditingController();
+  final StudentStore _studentController = GetIt.I<StudentStore>();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -37,6 +40,7 @@ class Search extends StatelessWidget {
             iconSize: 20,
             onPressed: () {
               print(textEditingController.text);
+              _studentController.filterMatriculas(textEditingController.text);
             },
           ),
         ),

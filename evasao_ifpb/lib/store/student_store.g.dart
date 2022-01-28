@@ -49,6 +49,15 @@ mixin _$StudentStore on _StudentStore, Store {
         .run(() => super.fetchAllStudents(course));
   }
 
+  final _$filterMatriculasAsyncAction =
+      AsyncAction('_StudentStore.filterMatriculas');
+
+  @override
+  Future<void> filterMatriculas(String matricula) {
+    return _$filterMatriculasAsyncAction
+        .run(() => super.filterMatriculas(matricula));
+  }
+
   final _$fetchStudentByIdAsyncAction =
       AsyncAction('_StudentStore.fetchStudentById');
 

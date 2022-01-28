@@ -34,7 +34,7 @@ class _BasePageState extends State<BasePage> {
             children: [
               CustomAppBar(),
               if (pageStore.page == 0)
-                const HomePage()
+                HomePage()
               else if (pageStore.page == 1)
                 StudentsPage()
               else if (pageStore.page == 2)
