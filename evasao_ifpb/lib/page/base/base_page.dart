@@ -1,5 +1,6 @@
 import 'package:evasao_ifpb/page/base/components/app_bar.dart';
 import 'package:evasao_ifpb/page/home/home_page.dart';
+import 'package:evasao_ifpb/page/login/login_page.dart';
 import 'package:evasao_ifpb/page/metrics/metrics_page.dart';
 import 'package:evasao_ifpb/page/students/students_page.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
@@ -39,32 +40,6 @@ class _BasePageState extends State<BasePage> {
                 StudentsPage()
               else if (pageStore.page == 2)
                 MetricsPage()
-                else
-                  Column(
-                    children: [
-                      Container(
-                        height: 200,
-                        color: Colors.blueGrey,
-                      ),
-                      Container(
-                        height: 200,
-                        color: Colors.red,
-                      ),
-                      Container(
-                        height: 200,
-                        color: Colors.orange,
-                      ),
-                      Container(
-                        height: 200,
-                        color: Colors.pink,
-                      ),
-                      Container(
-                        height: 200,
-                        color: Colors.yellow,
-                      ),
-
-                    ],
-                  )
             ],
           )
       );
