@@ -1,5 +1,6 @@
 import 'package:evasao_ifpb/store/student_store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
 class Search extends StatelessWidget {
@@ -12,39 +13,31 @@ class Search extends StatelessWidget {
       width: 300,
       height: 40,
       child: TextField(
+        onChanged: _studentController.filterMatricula,
         controller: textEditingController,
         cursorColor: Colors.white,
         style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(
+        decoration: const InputDecoration(
+          border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
-          enabledBorder: const OutlineInputBorder(
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 0.0),
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 0.5),
           ),
           hintText: 'Insira a matrícula...',
-          hintStyle: const TextStyle(
+          hintStyle: TextStyle(
             color: Colors.white,
             fontSize: 15,
           ),
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             Icons.person,
             color: Colors.white,
-          ),
-          suffixIcon: IconButton(
-            icon: const Icon(Icons.search),
-            color: Colors.white,
-            iconSize: 20,
-            onPressed: () {
-              print(textEditingController.text);
-              _studentController.filterMatriculas(textEditingController.text);
-            },
-          ),
+          )
         ),
-      ),
+      )
     );
   }
 }

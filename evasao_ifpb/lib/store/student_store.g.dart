@@ -40,6 +40,21 @@ mixin _$StudentStore on _StudentStore, Store {
     });
   }
 
+  final _$valorRatioAtom = Atom(name: '_StudentStore.valorRatio');
+
+  @override
+  int get valorRatio {
+    _$valorRatioAtom.reportRead();
+    return super.valorRatio;
+  }
+
+  @override
+  set valorRatio(int value) {
+    _$valorRatioAtom.reportWrite(value, super.valorRatio, () {
+      super.valorRatio = value;
+    });
+  }
+
   final _$fetchAllStudentsAsyncAction =
       AsyncAction('_StudentStore.fetchAllStudents');
 
@@ -47,15 +62,6 @@ mixin _$StudentStore on _StudentStore, Store {
   Future<void> fetchAllStudents(String course) {
     return _$fetchAllStudentsAsyncAction
         .run(() => super.fetchAllStudents(course));
-  }
-
-  final _$filterMatriculasAsyncAction =
-      AsyncAction('_StudentStore.filterMatriculas');
-
-  @override
-  Future<void> filterMatriculas(String matricula) {
-    return _$filterMatriculasAsyncAction
-        .run(() => super.filterMatriculas(matricula));
   }
 
   final _$fetchStudentByIdAsyncAction =
@@ -66,11 +72,37 @@ mixin _$StudentStore on _StudentStore, Store {
     return _$fetchStudentByIdAsyncAction.run(() => super.fetchStudentById(id));
   }
 
+  final _$_StudentStoreActionController =
+      ActionController(name: '_StudentStore');
+
+  @override
+  void filterMatricula(String value) {
+    final _$actionInfo = _$_StudentStoreActionController.startAction(
+        name: '_StudentStore.filterMatricula');
+    try {
+      return super.filterMatricula(value);
+    } finally {
+      _$_StudentStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setValorRatio(int value) {
+    final _$actionInfo = _$_StudentStoreActionController.startAction(
+        name: '_StudentStore.setValorRatio');
+    try {
+      return super.setValorRatio(value);
+    } finally {
+      _$_StudentStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
 studentModel: ${studentModel},
-loadingStudentPage: ${loadingStudentPage}
+loadingStudentPage: ${loadingStudentPage},
+valorRatio: ${valorRatio}
     ''';
   }
 }

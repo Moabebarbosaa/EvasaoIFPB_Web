@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.black.withOpacity(0.2),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, 6),
+                  offset: const Offset(0, 6),
                 ),
               ],
             ),
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 25,
                         alignment: Alignment.topCenter,
                       ),
-                      CustomText(text: 'EVASÃO IFPB-CG', fontSize: 24, fontWeight: FontWeight.bold,corText: Colors.green,)
+                      const CustomText(text: 'EVASÃO IFPB-CG', fontSize: 24, fontWeight: FontWeight.bold,corText: Colors.green,)
                     ],
                   ),
                 ),
@@ -121,9 +121,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       FocusScope.of(context)
                           .requestFocus(textFocusNodePassword);
                     },
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
@@ -170,9 +170,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       FocusScope.of(context)
                           .requestFocus(textFocusNodePassword);
                     },
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock_sharp),
+                      prefixIcon: const Icon(Icons.lock_sharp),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
@@ -204,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Flexible(
                         flex: 1,
-                        child: Container(
+                        child: SizedBox(
                           width: double.maxFinite,
                           child: TextButton(
                             style: ButtonStyle(
@@ -219,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               showDialog(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    return Center(child: CircularProgressIndicator(),);
+                                    return const Center(child: CircularProgressIndicator(),);
                                   });
                               await loginAction();
                               Navigator.pop(context);
@@ -234,7 +234,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     textControllerPassword.text == "projetoevasao"){
                                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                                     fullscreenDialog: true,
-                                    builder: (context) => BasePage(),
+                                    builder: (context) => const BasePage(),
                                   ));
                                 }else{
                                   const snackBar = SnackBar(
@@ -297,7 +297,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<bool> loginAction() async {
-    await new Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     return true;
   }
 

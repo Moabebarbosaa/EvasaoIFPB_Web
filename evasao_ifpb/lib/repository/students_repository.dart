@@ -8,7 +8,9 @@ class StudentsRepository {
 
   Future<AllStudentsModel> fetchAllStudents(String course) async {
     try {
-      final response = await _dio.get('/students/filter?curso=$course');
+      print(course);
+      final response = await _dio.get('/students/filter$course');
+
       final model = AllStudentsModel.fromMap(response.data);
       return model;
     } catch (e) {

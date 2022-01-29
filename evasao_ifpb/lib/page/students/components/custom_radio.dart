@@ -14,7 +14,6 @@ class _CustomRadioState extends State<CustomRadio> {
 
   final StudentStore _studentController = GetIt.I<StudentStore>();
 
-  int val = 1;
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -23,14 +22,33 @@ class _CustomRadioState extends State<CustomRadio> {
       ),
       child: Row(
         children: [
+
+          const SizedBox(width: 10),
+          Radio(
+              value: 0,
+              groupValue: _studentController.valorRatio,
+              onChanged: (value) {
+                setState(() {
+                  _studentController.setValorRatio(0);
+                  _studentController.fetchAllStudents('');
+                });
+              },
+              activeColor: Colors.white
+          ),
+          const CustomText(
+            text: 'Todos os Cursos',
+            corText: Colors.white,
+            fontSize: 18,
+          ),
+
           const SizedBox(width: 10),
           Radio(
             value: 1,
-            groupValue: val,
+            groupValue: _studentController.valorRatio,
             onChanged: (value) {
               setState(() {
-                val = 1;
-                _studentController.fetchAllStudents('computacao');
+                _studentController.setValorRatio(1);
+                _studentController.fetchAllStudents('?curso=computacao');
               });
             },
             activeColor: Colors.white
@@ -44,11 +62,11 @@ class _CustomRadioState extends State<CustomRadio> {
           const SizedBox(width: 10),
           Radio(
             value: 2,
-            groupValue: val,
+            groupValue: _studentController.valorRatio,
             onChanged: (value) {
               setState(() {
-                val = 2;
-                _studentController.fetchAllStudents('construcao');
+                _studentController.setValorRatio(2);
+                _studentController.fetchAllStudents('?curso=construcao');
               });
             },
             activeColor: Colors.white,
@@ -62,11 +80,11 @@ class _CustomRadioState extends State<CustomRadio> {
           const SizedBox(width: 10),
           Radio(
             value: 3,
-            groupValue: val,
+            groupValue: _studentController.valorRatio,
             onChanged: (value) {
               setState(() {
-                val = 3;
-                _studentController.fetchAllStudents('fisica');
+                _studentController.setValorRatio(3);
+                _studentController.fetchAllStudents('?curso=fisica');
               });
             },
             activeColor: Colors.white,
@@ -80,11 +98,11 @@ class _CustomRadioState extends State<CustomRadio> {
           const SizedBox(width: 10),
           Radio(
             value: 4,
-            groupValue: val,
+            groupValue: _studentController.valorRatio,
             onChanged: (value) {
               setState(() {
-                val = 4;
-                _studentController.fetchAllStudents('matematica');
+                _studentController.setValorRatio(4);
+                _studentController.fetchAllStudents('?curso=matematica');
               });
             },
             activeColor: Colors.white,
@@ -98,11 +116,11 @@ class _CustomRadioState extends State<CustomRadio> {
           const SizedBox(width: 10),
           Radio(
             value: 5,
-            groupValue: val,
+            groupValue: _studentController.valorRatio,
             onChanged: (value) {
               setState(() {
-                val = 5;
-                _studentController.fetchAllStudents('telematica');
+                _studentController.setValorRatio(5);
+                _studentController.fetchAllStudents('?curso=telematica');
               });
             },
             activeColor: Colors.white,

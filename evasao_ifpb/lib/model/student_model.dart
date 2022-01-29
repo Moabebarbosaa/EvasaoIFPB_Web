@@ -62,4 +62,8 @@ class StudentModel {
     );
   }
 
+  @override
+  String toString() {
+    return 'StudentModel{matricula: $matricula, curso: $curso}';
+  }
 }

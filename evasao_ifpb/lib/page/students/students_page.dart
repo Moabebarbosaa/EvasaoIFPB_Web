@@ -19,41 +19,41 @@ class StudentsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
-      final size = MediaQuery.of(context).size;
-      return Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 40, right: 40, top: 10),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Card(
-                  elevation: 20,
-                  color: Colors.green,
-                  child: Container(
-                    margin: const EdgeInsets.all(10),
-                    child:  Padding(
-                      padding: const EdgeInsets.only(
-                          left: 10, right: 30, top: 20, bottom: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CustomRadio(),
-                          Search()
-                        ],
-                      ),
+    final size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 40, right: 40, top: 10),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Card(
+                elevation: 20,
+                color: Colors.green,
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 10, right: 30, top: 20, bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CustomRadio(),
+                        Search(),
+                      ],
                     ),
                   ),
                 ),
-                const Card(
-                    color: Colors.green,
-                    elevation: 20,
-                    child: SizedBox(height: 40, child: Header())),
-              ],
-            ),
+              ),
+              const Card(
+                  color: Colors.green,
+                  elevation: 20,
+                  child: SizedBox(height: 40, child: Header())),
+            ],
           ),
-          _studentController.loadingStudentPage
+        ),
+        Observer(builder: (_) {
+          return _studentController.loadingStudentPage
               ? SizedBox(
                   height: size.height - 240,
                   child: const Center(
@@ -73,9 +73,9 @@ class StudentsPage extends StatelessWidget {
                         final student = _studentController.students[index];
                         return StudentCard(student: student);
                       }),
-                ),
-        ],
-      );
-    });
+                );
+        })
+      ],
+    );
   }
 }

@@ -38,35 +38,35 @@ ScaleTransition bodyShowDialog(Animation<double> a1) {
                   ],
                   rows: <DataRow>[
                     generateRows(['Matrícula:', 'Curso:', 'Período atual:'],
-                        [student!.matricula, student.curso, 'student.periodo_atual!']),
+                        [student!.matricula, student.curso, student.periodo_atual!]),
                     generateRows([
                       'Ano de Ingresso:',
                       'Sit. ultimo período:',
                       'CRE:'
                     ], [
-                      'student.ano_ingresso!',
-                      'student.sit_ultimo_periodo!',
-                      'student.cre'
+                      student.ano_ingresso!,
+                      student.sit_ultimo_periodo!,
+                      student.cre
                     ]),
                     generateRows(['Idade:', 'Faixa de renda:', 'Cota:'],
-                        [student.idade, 'student.faixa_renda!', 'student.cota!']),
+                        [student.idade, student.faixa_renda!, student.cota!]),
                     generateRows([
                       'Reprovação por nota:',
                       'Reprovação por falta:',
                       'Cidade:'
                     ], [
-                      'student.reprovacao_nota!',
-                      'student.reprovacao_falta!',
-                      'student.cidade!'
+                      student.reprovacao_nota!,
+                      student.reprovacao_falta!,
+                      student.cidade!
                     ]),
                     generateRows([
                       'Média do enem:',
                       'Nota ENEM Matemática:',
-                      'Nota enem Red.:'
+                      'Nota ENEM Redação:'
                     ], [
-                      'student.nu_media!',
-                      'student.nu_nota_m!',
-                      'student.nu_nota_r!'
+                      student.nu_media!,
+                      student.nu_nota_m!,
+                      student.nu_nota_r!
                     ]),
                   ],
                 ),
@@ -89,6 +89,11 @@ ScaleTransition bodyShowDialog(Animation<double> a1) {
                     ),
                     Expanded(
                       child: SfCartesianChart(
+                        palette: <Color>[
+                          Colors.green,
+                          Colors.orange,
+                          Colors.brown
+                        ],
                         series: <ChartSeries>[
                           // Renders line chart
                           LineSeries<ChartData, int>(
