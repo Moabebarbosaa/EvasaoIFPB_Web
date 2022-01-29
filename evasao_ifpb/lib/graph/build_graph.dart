@@ -11,24 +11,6 @@ class BuildGraph{
 
   BuildGraph(this.context);
 
-
-  // Container buildContainerIni(String nome, int valor){
-  //   return Container(
-  //     width: MediaQuery.of(context).size.width/10,
-  //     height: MediaQuery.of(context).size.height/10,
-  //     child: Card(
-  //       elevation: 20,
-  //       child: Column(
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: [
-  //           CustomText(text: nome,fontSize: MediaQuery.of(context).size.width/100, fontWeight: FontWeight.bold,),
-  //           CustomText(text: valor.toString(),fontSize: MediaQuery.of(context).size.width/80),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
   Container buildContainerPizza(String nome,List<int> valores,List<String> variaveis){
     return Container(
       width: MediaQuery.of(context).size.width/3.5,

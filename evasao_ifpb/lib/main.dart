@@ -1,4 +1,5 @@
 import 'package:evasao_ifpb/page/base/base_page.dart';
+import 'package:evasao_ifpb/page/login/login_page.dart';
 import 'package:evasao_ifpb/store/home_store.dart';
 import 'package:evasao_ifpb/store/metrics_store.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
@@ -23,8 +24,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      title: "Evasão IFPB-CG",
       debugShowCheckedModeBanner: false,
-      home: BasePage(),
+      home: LoginScreen(),
     );
   }
 }

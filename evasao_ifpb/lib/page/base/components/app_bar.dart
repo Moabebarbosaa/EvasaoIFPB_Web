@@ -1,5 +1,6 @@
 import 'package:evasao_ifpb/Components/custom_text.dart';
 import 'package:evasao_ifpb/page/base/components/menu_item.dart';
+import 'package:evasao_ifpb/page/login/login_page.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -62,7 +63,11 @@ class CustomAppBar extends StatelessWidget {
           MenuItem(
             title: "Sair",
             onPressed: () {
-              pageStore.page = 3;
+              Navigator.of(context)
+                  .pushReplacement(MaterialPageRoute(
+                fullscreenDialog: true,
+                builder: (context) => LoginScreen(),
+              ));
             },
             selected: pageStore.page == 3 ? true : false,
           ),
