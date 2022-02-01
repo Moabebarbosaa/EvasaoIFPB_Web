@@ -1,4 +1,5 @@
 import 'package:evasao_ifpb/Components/custom_text.dart';
+import 'package:evasao_ifpb/graph/build_graph.dart';
 import 'package:evasao_ifpb/model/student_model.dart';
 import 'package:evasao_ifpb/page/students/components/show_dialog.dart';
 import 'package:evasao_ifpb/store/student_store.dart';
@@ -26,7 +27,8 @@ class StudentCard extends StatelessWidget {
           barrierColor: Colors.black54,
           transitionDuration: const Duration(milliseconds: 400),
           transitionBuilder: (context, a1, a2, child) {
-            return bodyShowDialog(a1);
+            BuildGraph buildGraph = BuildGraph(context);
+            return bodyShowDialog(a1, buildGraph);
           },
           pageBuilder: (BuildContext context, Animation animation,
               Animation secondaryAnimation) {
@@ -42,11 +44,11 @@ class StudentCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CustomText(
-                  text: student.matricula,
+                  text: student.matricula!,
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
                 ),
-                CustomText(text: student.curso),
+                CustomText(text: student.curso!),
                 CustomText(text: student.cre.toString()),
                 CustomText(text: student.idade.toString()),
                 CustomText(text: 'Risco de Evasão'),

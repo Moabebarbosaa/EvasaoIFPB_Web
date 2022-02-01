@@ -1,10 +1,12 @@
 import 'package:evasao_ifpb/components/custom_text.dart';
 import 'package:evasao_ifpb/graph/build_graph.dart';
-import 'package:evasao_ifpb/page/home/components/custom_ratio.dart';
+import 'package:evasao_ifpb/model/testes/histogram_model.dart';
+import 'package:evasao_ifpb/page/home/components/custom_ratio_course.dart';
 import 'package:evasao_ifpb/store/home_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -29,7 +31,7 @@ class HomePage extends StatelessWidget {
                 child: const Padding(
                   padding:
                       EdgeInsets.only(left: 10, right: 30, top: 5, bottom: 5),
-                  child: CustomRadio(),
+                  child: CustomRadioCourse(),
                 ),
               ),
             ),
@@ -43,7 +45,8 @@ class HomePage extends StatelessWidget {
                         backgroundColor: Colors.green,
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                       ),
-                    ))
+                    ),
+                  )
                 : Column(
                     children: [
                       const SizedBox(
@@ -76,17 +79,67 @@ class HomePage extends StatelessWidget {
                         corText: Colors.white,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(40),
                         child: Wrap(
                           crossAxisAlignment: WrapCrossAlignment.center,
+                          alignment: WrapAlignment.center,
                           children: [
-                            buildGraph.buildContainerPizza("Sexo", [
-                              homeStore.dataModel!.sexo.masculino,
-                              homeStore.dataModel!.sexo.feminino
-                            ], [
-                              "Masculino",
-                              "Feminino"
-                            ]),
+                            SizedBox(
+                              width: 700,
+                              child: Card(
+                                elevation: 20,
+                                child: SfCartesianChart(
+                                  title: ChartTitle(text: 'CRE'),
+                                  palette: const <Color>[
+                                    Colors.green,
+                                  ],
+                                  series: <ChartSeries>[
+                                    HistogramSeries<Cre, double>(
+                                        dataSource: homeStore.histograma_cre!.histogram,
+                                        showNormalDistributionCurve: true,
+                                        curveColor: Colors.red,
+                                        binInterval: 20,
+                                        yValueMapper: (Cre sales, _) => sales.cre
+
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                            SizedBox(
+                              width: 700,
+                              child: Card(
+                                elevation: 20,
+                                child: SfCircularChart(
+                                    title: ChartTitle(text: 'SEXO'),
+                                    series: <CircularSeries>[
+                                      PieSeries<ChartData, String>(
+                                          dataSource: [
+                                            ChartData(homeStore.dataModel!.sexo.masculino, 'Maculino', Colors.green.shade900),
+                                            ChartData(homeStore.dataModel!.sexo.feminino, 'Feminino', Colors.green),
+                                          ],
+                                          pointColorMapper:(ChartData data,  _) => data.color,
+                                          xValueMapper: (ChartData data, _) => data.nome,
+                                          yValueMapper: (ChartData data, _) => data.qtd,
+                                          // Segments will explode on tap
+                                          explode: true,
+                                          // First segment will be exploded on initial rendering
+                                          explodeIndex: 1
+                                      )
+                                    ]
+                                ),
+                              ),
+                            ),
+
+
+                            // buildGraph.buildContainerPizza("Sexo", [
+                            //   homeStore.dataModel!.sexo.masculino,
+                            //   homeStore.dataModel!.sexo.feminino
+                            // ], [
+                            //   "Masculino",
+                            //   "Feminino"
+                            // ]),
                             buildGraph.buildContainerBarVertical("Idade", [
                               homeStore.dataModel!.idade.quinze_vintedois,
                               homeStore.dataModel!.idade.vintedois_vinteoito,
@@ -241,4 +294,11 @@ class HomePage extends StatelessWidget {
       ),
     ));
   }
+}
+
+class ChartData {
+  ChartData(this.qtd, this.nome, [this.color]);
+  final int qtd;
+  final String nome;
+  final Color? color;
 }

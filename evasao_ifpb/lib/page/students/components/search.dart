@@ -27,7 +27,7 @@ class Search extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 0.5),
           ),
-          hintText: 'Insira a matrícula...',
+          hintText: 'Filtrar por matrícula...',
           hintStyle: TextStyle(
             color: Colors.white,
             fontSize: 15,

@@ -1,11 +1,13 @@
 import 'dart:convert';
 
+import 'package:evasao_ifpb/model/historic_model.dart';
+
 class StudentModel {
   final int id;
-  final String matricula;
-  final String curso;
-  final double cre;
-  final int idade;
+  final String? matricula;
+  final String? curso;
+  final double? cre;
+  final int? idade;
   final int? periodo_atual;
   final int? ano_ingresso;
   final String? sit_ultimo_periodo;
@@ -17,6 +19,7 @@ class StudentModel {
   final int? reprovacao_nota;
   final int? reprovacao_falta;
   final String? cidade;
+  final List<HistoricModel>? historic;
 
 
   const StudentModel({
@@ -36,6 +39,7 @@ class StudentModel {
     required this.reprovacao_nota,
     required this.reprovacao_falta,
     required this.cidade,
+    required this.historic
   });
 
   factory StudentModel.fromJson(String str) =>
@@ -59,11 +63,13 @@ class StudentModel {
       reprovacao_nota: json['reprovacao_nota'],
       reprovacao_falta: json['reprovacao_falta'],
       cidade: json['cidade'],
+      historic: List<HistoricModel>.from(
+          json["historic"].map((x) => HistoricModel.fromMap(x))),
     );
   }
 
   @override
   String toString() {
-    return 'StudentModel{matricula: $matricula, curso: $curso}';
+    return 'StudentModel{matricula: $matricula, curso: $curso, historic: $historic}';
   }
 }
