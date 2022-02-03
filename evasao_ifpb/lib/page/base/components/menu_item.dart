@@ -23,7 +23,7 @@ class MenuItem extends StatelessWidget {
             onPressed: onPressed,
             style: TextButton.styleFrom(
               primary: selected ? Colors.white : const Color(0xFF241424).withOpacity(0.3),
-              backgroundColor: selected ? Colors.green : Colors.white,
+              backgroundColor: selected ? Colors.green.shade900 : Colors.white,
               onSurface: Colors.grey,
             ),
             child: Text(

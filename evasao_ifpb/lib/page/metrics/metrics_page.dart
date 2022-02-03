@@ -9,50 +9,87 @@ class MetricsPage extends StatelessWidget {
 
   final MetricsStore _metricsStore = GetIt.I<MetricsStore>();
 
+  final TextEditingController cre = TextEditingController();
+  final TextEditingController reprovacao = TextEditingController();
+  final TextEditingController distacia = TextEditingController();
+  final TextEditingController indice_ch = TextEditingController();
+  final TextEditingController m_enem = TextEditingController();
+  final TextEditingController ch_enem = TextEditingController();
+  final TextEditingController dif_ensMedio = TextEditingController();
+  final TextEditingController idade = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Flexible(
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          shrinkWrap: true,
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 40),
-              child: CustomText(
-                  text: 'INSIRA OS VALORES ADEQUADOS PARA SABER A PROBABILIDADE DE EVASÃO',
-                corText: Colors.white,
-                textAlign: TextAlign.center,
-                fontSize: 25,
-                fontWeight: FontWeight.w500,
-              ),
+    return Expanded(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 50, right: 50),
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 40, bottom: 40),
+                  child: CustomText(
+                    text: 'INSIRA OS VALORES ADEQUADOS PARA SABER A PROBABILIDADE DE EVASÃO',
+                    corText: Colors.white,
+                    textAlign: TextAlign.center,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+            
+
+                CustomTextField(labelText: 'CRE:', textEditingController: cre,),
+                CustomTextField(labelText: 'Reprovação por falta:', textEditingController: reprovacao,),
+                CustomTextField(labelText: 'Distâcia de sua casa até o IFPB:', textEditingController: distacia,),
+                CustomTextField(labelText: 'Índice CH:', textEditingController: indice_ch,),
+                CustomTextField(labelText: 'Nota de Matemática do ENEM:', textEditingController: m_enem,),
+                CustomTextField(labelText: 'Nota de Ciências da Natureza do ENEM:', textEditingController: ch_enem,),
+                CustomTextField(labelText: 'Diferença entre anos do Ens. Médio e ingresso na Universidade:', textEditingController: dif_ensMedio,),
+                CustomTextField(labelText: 'Idade:', textEditingController: idade,),
+
+                const SizedBox(height: 30,),
+
+                SizedBox(
+                  height: 40,
+                  width: size.width * 0.3,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25),
+                    child:TextButton(
+                      onPressed: (){
+
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.green.shade900,
+                        onSurface: Colors.grey,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          SizedBox(width: 20,),
+                          Expanded(
+                            child: Text(
+                              'DESCOBRIR PROBABILIDADE',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20
+                              ),
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    )
+                  ),
+                ),
+              ],
             ),
-            CustomTextField(labelText: 'Diferença de anos entre ensino médio e ingresso na universidade:'),
-            CustomTextField(labelText: 'Média geral do ENEM:'),
-            CustomTextField(labelText: 'Idade:'),
-            CustomTextField(labelText: 'CRE:'),
-
-            CustomTextField(labelText: 'Quantidades de reprovações:'),
-            CustomTextField(labelText: 'Distâcia de sua casa até o IFPB:'),
-
-            CustomTextField(labelText: 'Cor/Raça:'),
-            CustomTextField(labelText: 'Cota:'),
-            CustomTextField(labelText: 'Sexo:'),
-            CustomTextField(labelText: 'Faixa de renda:'),
-
-            CustomTextField(labelText: 'Tipo de residência:'),
-
-
-
-            CustomTextField(labelText: 'Reprovou Calculo:'),
-            CustomTextField(labelText: 'Reprovou as duas diciplinas principais do curso:'),
-
-
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }

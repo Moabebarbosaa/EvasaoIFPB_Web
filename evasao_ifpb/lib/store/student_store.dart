@@ -1,5 +1,4 @@
 import 'package:evasao_ifpb/model/student_model.dart';
-import 'package:evasao_ifpb/model/testes/histogram_model.dart';
 import 'package:evasao_ifpb/repository/students_repository.dart';
 import 'package:mobx/mobx.dart';
 
@@ -19,7 +18,6 @@ abstract class _StudentStore with Store {
 
   @observable
   StudentModel? studentModel;
-
 
   @observable
   bool loadingStudentPage = true;

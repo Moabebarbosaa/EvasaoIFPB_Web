@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:evasao_ifpb/core/api.dart';
 import 'package:evasao_ifpb/model/all_students_model.dart';
 import 'package:evasao_ifpb/model/student_model.dart';
-import 'package:evasao_ifpb/model/testes/histogram_model.dart';
 
 class StudentsRepository {
   final Dio _dio = Dio(kDioOptions);
@@ -29,15 +28,6 @@ class StudentsRepository {
     }
   }
 
-  Future<Histograma_CRE> fetchHistogram() async {
-    try {
-      final response = await _dio2.get('/histograma');
-      final model = Histograma_CRE.fromMap(response.data);
-      return model;
-    } catch (e) {
-      return Future.error('Error: fetchHistogram_Repository');
-    }
-  }
 
 
 }

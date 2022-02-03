@@ -24,158 +24,191 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
       ),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               const SizedBox(width: 10),
-              Radio(
-                  value: 0,
-                  groupValue: course,
-                  onChanged: (value) {
-                    setState(() {
-                      course = 0;
-                      _studentController.fetchDataAllCourse('');
-                    });
-                  },
-                  activeColor: Colors.white),
-              const CustomText(
-                text: 'Todos os Cursos',
-                corText: Colors.white,
-                fontSize: 18,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                      value: 0,
+                      groupValue: course,
+                      onChanged: (value) {
+                        setState(() {
+                          course = 0;
+                          _studentController.fetchDataAllCourse('');
+                        });
+                      },
+                      activeColor: Colors.white),
+                  const CustomText(
+                    text: 'Todos os Cursos',
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
-              Radio(
-                  value: 1,
-                  groupValue: course,
-                  onChanged: (value) {
-                    setState(() {
-                      course = 1;
-                      rota = 'curso=computacao';
-                      if (evasao == 1) {
-                        _studentController
-                            .fetchDataAllCourse('curso=computacao&evasao=1');
-                      } else if (evasao == 0) {
-                        _studentController
-                            .fetchDataAllCourse('curso=computacao&evasao=0');
-                      } else {
-                        _studentController
-                            .fetchDataAllCourse('curso=computacao');
-                      }
-                    });
-                  },
-                  activeColor: Colors.white),
-              const CustomText(
-                text: 'Engenharia de Computação',
-                corText: Colors.white,
-                fontSize: 18,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                      value: 1,
+                      groupValue: course,
+                      onChanged: (value) {
+                        setState(() {
+                          course = 1;
+                          rota = 'curso=computacao';
+                          if (evasao == 1) {
+                            _studentController
+                                .fetchDataAllCourse('curso=computacao&evasao=1');
+                          } else if (evasao == 0) {
+                            _studentController
+                                .fetchDataAllCourse('curso=computacao&evasao=0');
+                          } else {
+                            _studentController
+                                .fetchDataAllCourse('curso=computacao');
+                          }
+                        });
+                      },
+                      activeColor: Colors.white),
+                  const CustomText(
+                    text: 'Engenharia de Computação',
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
+              ),
+
+              const SizedBox(width: 10),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                    value: 2,
+                    groupValue: course,
+                    onChanged: (value) {
+                      setState(() {
+                        course = 2;
+                        rota = 'curso=construcao';
+                        if (evasao == 1) {
+                          _studentController
+                              .fetchDataAllCourse('curso=construcao&evasao=1');
+                        } else if (evasao == 0) {
+                          _studentController
+                              .fetchDataAllCourse('curso=construcao&evasao=0');
+                        } else {
+                          _studentController.fetchDataAllCourse('curso=construcao');
+                        }
+                      });
+                    },
+                    activeColor: Colors.white,
+                  ),
+                  const CustomText(
+                    text: 'Construção de Edifícios',
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
-              Radio(
-                value: 2,
-                groupValue: course,
-                onChanged: (value) {
-                  setState(() {
-                    course = 2;
-                    rota = 'curso=construcao';
-                    if (evasao == 1) {
-                      _studentController
-                          .fetchDataAllCourse('curso=construcao&evasao=1');
-                    } else if (evasao == 0) {
-                      _studentController
-                          .fetchDataAllCourse('curso=construcao&evasao=0');
-                    } else {
-                      _studentController.fetchDataAllCourse('curso=construcao');
-                    }
-                  });
-                },
-                activeColor: Colors.white,
-              ),
-              const CustomText(
-                text: 'Construção de Edifícios',
-                corText: Colors.white,
-                fontSize: 18,
-              ),
-              const SizedBox(width: 10),
-              Radio(
-                value: 3,
-                groupValue: course,
-                onChanged: (value) {
-                  setState(() {
-                    course = 3;
-                    rota = 'curso=fisica';
-                    if (evasao == 1) {
-                      _studentController
-                          .fetchDataAllCourse('curso=fisica&evasao=1');
-                    } else if (evasao == 0) {
-                      _studentController
-                          .fetchDataAllCourse('curso=fisica&evasao=0');
-                    } else {
-                      _studentController.fetchDataAllCourse('curso=fisica');
-                    }
-                  });
-                },
-                activeColor: Colors.white,
-              ),
-              const CustomText(
-                text: 'Física',
-                corText: Colors.white,
-                fontSize: 18,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                    value: 3,
+                    groupValue: course,
+                    onChanged: (value) {
+                      setState(() {
+                        course = 3;
+                        rota = 'curso=fisica';
+                        if (evasao == 1) {
+                          _studentController
+                              .fetchDataAllCourse('curso=fisica&evasao=1');
+                        } else if (evasao == 0) {
+                          _studentController
+                              .fetchDataAllCourse('curso=fisica&evasao=0');
+                        } else {
+                          _studentController.fetchDataAllCourse('curso=fisica');
+                        }
+                      });
+                    },
+                    activeColor: Colors.white,
+                  ),
+                  const CustomText(
+                    text: 'Física',
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
-              Radio(
-                value: 4,
-                groupValue: course,
-                onChanged: (value) {
-                  setState(() {
-                    course = 4;
-                    rota = 'curso=matematica';
-                    if (evasao == 1) {
-                      _studentController
-                          .fetchDataAllCourse('curso=matematica&evasao=1');
-                    } else if (evasao == 0) {
-                      _studentController
-                          .fetchDataAllCourse('curso=matematica&evasao=0');
-                    } else {
-                      _studentController.fetchDataAllCourse('curso=matematica');
-                    }
-                  });
-                },
-                activeColor: Colors.white,
-              ),
-              const CustomText(
-                text: 'Matemática',
-                corText: Colors.white,
-                fontSize: 18,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                    value: 4,
+                    groupValue: course,
+                    onChanged: (value) {
+                      setState(() {
+                        course = 4;
+                        rota = 'curso=matematica';
+                        if (evasao == 1) {
+                          _studentController
+                              .fetchDataAllCourse('curso=matematica&evasao=1');
+                        } else if (evasao == 0) {
+                          _studentController
+                              .fetchDataAllCourse('curso=matematica&evasao=0');
+                        } else {
+                          _studentController.fetchDataAllCourse('curso=matematica');
+                        }
+                      });
+                    },
+                    activeColor: Colors.white,
+                  ),
+                  const CustomText(
+                    text: 'Matemática',
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
-              Radio(
-                value: 5,
-                groupValue: course,
-                onChanged: (value) {
-                  setState(() {
-                    course = 5;
-                    rota = 'curso=telematica';
-                    if (evasao == 1) {
-                      _studentController
-                          .fetchDataAllCourse('curso=telematica&evasao=1');
-                    } else if (evasao == 0) {
-                      _studentController
-                          .fetchDataAllCourse('curso=telematica&evasao=0');
-                    } else {
-                      _studentController.fetchDataAllCourse('curso=telematica');
-                    }
-                  });
-                },
-                activeColor: Colors.white,
-              ),
-              const CustomText(
-                text: 'Telemática',
-                corText: Colors.white,
-                fontSize: 18,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                    value: 5,
+                    groupValue: course,
+                    onChanged: (value) {
+                      setState(() {
+                        course = 5;
+                        rota = 'curso=telematica';
+                        if (evasao == 1) {
+                          _studentController
+                              .fetchDataAllCourse('curso=telematica&evasao=1');
+                        } else if (evasao == 0) {
+                          _studentController
+                              .fetchDataAllCourse('curso=telematica&evasao=0');
+                        } else {
+                          _studentController.fetchDataAllCourse('curso=telematica');
+                        }
+                      });
+                    },
+                    activeColor: Colors.white,
+                  ),
+                  const CustomText(
+                    text: 'Telemática',
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
             ],
           ),
+          const SizedBox(height: 10),
+          const Divider(color: Colors.white,),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -190,6 +223,9 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
                     });
                   },
                   activeColor: Colors.white),
+
+
+
               const CustomText(
                 text: 'Geral',
                 corText: Colors.white,

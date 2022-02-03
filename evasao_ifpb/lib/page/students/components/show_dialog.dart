@@ -1,16 +1,11 @@
-import 'package:evasao_ifpb/Components/custom_text.dart';
-import 'package:evasao_ifpb/graph/build_graph.dart';
-import 'package:evasao_ifpb/graph/evolucao.dart';
-import 'package:evasao_ifpb/graph/modelos_bar_chart.dart';
 import 'package:evasao_ifpb/store/student_store.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 import 'custom_dialog.dart';
 import 'generate_rows.dart';
 
-ScaleTransition bodyShowDialog(Animation<double> a1, BuildGraph buildGraph) {
+ScaleTransition bodyShowDialog(Animation<double> a1) {
   final StudentStore _studentController = GetIt.I<StudentStore>();
   final student = _studentController.studentModel;
 
