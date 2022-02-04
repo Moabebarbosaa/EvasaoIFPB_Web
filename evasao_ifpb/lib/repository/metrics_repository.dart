@@ -5,9 +5,9 @@ import 'package:evasao_ifpb/model/metrics_model.dart';
 class MetricsRepository {
   final Dio _dio = Dio(metricsOptions);
 
-  Future<MetricsModel> fetchProbability() async {
+  Future<MetricsModel> fetchProbability(String route) async {
     try {
-      final response = await _dio.get('/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/2.0');
+      final response = await _dio.get(route);
       final model = MetricsModel.fromMap(response.data);
       return model;
     } catch (e) {

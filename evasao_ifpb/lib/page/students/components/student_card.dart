@@ -49,7 +49,9 @@ class StudentCard extends StatelessWidget {
                 CustomText(text: student.curso!),
                 CustomText(text: student.cre.toString()),
                 CustomText(text: student.idade.toString()),
-                CustomText(text: 'Risco de Evasão'),
+                student.historic![0].risco == -1 ?
+                CustomText(text: (student.historic![1].risco.toString() + '%')):
+                CustomText(text: (student.historic![0].risco.toString() + '%'))
               ],
             ),
           ),

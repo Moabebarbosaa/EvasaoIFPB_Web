@@ -1,6 +1,5 @@
 import 'package:evasao_ifpb/page/base/components/app_bar.dart';
 import 'package:evasao_ifpb/page/home/home_page.dart';
-import 'package:evasao_ifpb/page/login/login_page.dart';
 import 'package:evasao_ifpb/page/metrics/metrics_page.dart';
 import 'package:evasao_ifpb/page/students/students_page.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
@@ -22,6 +21,7 @@ class _BasePageState extends State<BasePage> {
 
   @override
   void initState() {
+    super.initState();
     reaction((_) => pageStore.page,
             (page) => pageController.jumpToPage(int.parse(page.toString())));
   }

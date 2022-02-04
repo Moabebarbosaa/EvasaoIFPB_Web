@@ -14,7 +14,6 @@ void main() {
 void setupLocators() {
   GetIt.I.registerSingleton(PageStore());
   GetIt.I.registerSingleton(StudentStore());
-  GetIt.I.registerSingleton(MetricsStore());
   GetIt.I.registerSingleton(HomeStore());
 }
 
