@@ -1,6 +1,6 @@
 import 'package:evasao_ifpb/Components/custom_text.dart';
 import 'package:evasao_ifpb/model/student_model.dart';
-import 'package:evasao_ifpb/page/students/components/show_dialog.dart';
+import 'package:evasao_ifpb/page/detail_student/show_dialog.dart';
 import 'package:evasao_ifpb/store/student_store.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';

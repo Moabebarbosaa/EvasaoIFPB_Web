@@ -23,8 +23,10 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
         unselectedWidgetColor: Colors.white,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Wrap(
+            alignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               const SizedBox(width: 10),
@@ -45,6 +47,7 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
                     text: 'Todos os Cursos',
                     corText: Colors.white,
                     fontSize: 18,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
@@ -76,6 +79,7 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
                     text: 'Engenharia de Computação',
                     corText: Colors.white,
                     fontSize: 18,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
@@ -106,6 +110,7 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
                   ),
                   const CustomText(
                     text: 'Construção de Edifícios',
+                    overflow: TextOverflow.ellipsis,
                     corText: Colors.white,
                     fontSize: 18,
                   ),
@@ -137,6 +142,7 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
                   ),
                   const CustomText(
                     text: 'Física',
+                    overflow: TextOverflow.ellipsis,
                     corText: Colors.white,
                     fontSize: 18,
                   ),
@@ -168,6 +174,7 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
                   ),
                   const CustomText(
                     text: 'Matemática',
+                    overflow: TextOverflow.ellipsis,
                     corText: Colors.white,
                     fontSize: 18,
                   ),
@@ -199,6 +206,7 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
                   ),
                   const CustomText(
                     text: 'Telemática',
+                    overflow: TextOverflow.ellipsis,
                     corText: Colors.white,
                     fontSize: 18,
                   ),
@@ -210,58 +218,76 @@ class _CustomRadioCourseState extends State<CustomRadioCourse> {
           const SizedBox(height: 10),
           const Divider(color: Colors.white,),
           const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             children: [
-              Radio(
-                  value: -1,
-                  groupValue: evasao,
-                  onChanged: (value) {
-                    setState(() {
-                      evasao = -1;
-                      _studentController.fetchDataAllCourse(rota);
-                    });
-                  },
-                  activeColor: Colors.white),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                    value: -1,
+                    groupValue: evasao,
+                    onChanged: (value) {
+                      setState(() {
+                        evasao = -1;
+                        _studentController.fetchDataAllCourse(rota);
+                      });
+                    },
+                    activeColor: Colors.white,
+                  ),
 
-
-
-              const CustomText(
-                text: 'Geral',
-                corText: Colors.white,
-                fontSize: 18,
+                  const CustomText(
+                    text: 'Geral',
+                    overflow: TextOverflow.ellipsis,
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
-              Radio(
-                  value: 1,
-                  groupValue: evasao,
-                  onChanged: (value) {
-                    setState(() {
-                      evasao = 1;
-                      _studentController.fetchDataAllCourse(rota + '&evasao=1');
-                    });
-                  },
-                  activeColor: Colors.white),
-              const CustomText(
-                text: 'Evadidos',
-                corText: Colors.white,
-                fontSize: 18,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                      value: 1,
+                      groupValue: evasao,
+                      onChanged: (value) {
+                        setState(() {
+                          evasao = 1;
+                          _studentController.fetchDataAllCourse(rota + '&evasao=1');
+                        });
+                      },
+                      activeColor: Colors.white),
+                  const CustomText(
+                    text: 'Evadidos',
+                    overflow: TextOverflow.ellipsis,
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
-              Radio(
-                  value: 0,
-                  groupValue: evasao,
-                  onChanged: (value) {
-                    setState(() {
-                      _studentController.fetchDataAllCourse(rota + '&evasao=0');
-                      evasao = 0;
-                    });
-                  },
-                  activeColor: Colors.white),
-              const CustomText(
-                text: 'Matriculados',
-                corText: Colors.white,
-                fontSize: 18,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                      value: 0,
+                      groupValue: evasao,
+                      onChanged: (value) {
+                        setState(() {
+                          _studentController.fetchDataAllCourse(rota + '&evasao=0');
+                          evasao = 0;
+                        });
+                      },
+                      activeColor: Colors.white),
+                  const CustomText(
+                    text: 'Matriculados',
+                    overflow: TextOverflow.ellipsis,
+                    corText: Colors.white,
+                    fontSize: 18,
+                  ),
+                ],
               ),
               const SizedBox(width: 10),
             ],

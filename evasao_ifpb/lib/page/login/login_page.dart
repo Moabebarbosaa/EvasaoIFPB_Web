@@ -5,6 +5,7 @@ import '../home/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/auth';
+
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -12,7 +13,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   @override
   void initState() {
     textControllerEmail = TextEditingController();
@@ -38,7 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     String? _validateEmail(String value) {
       value = value.trim();
 
@@ -81,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.center,
             width: 325,
             height: 325,
-            child:Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -95,7 +94,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 25,
                         alignment: Alignment.topCenter,
                       ),
-                      const CustomText(text: 'EVASÃO IFPB-CG', fontSize: 24, fontWeight: FontWeight.bold,corText: Colors.green,)
+                      const CustomText(
+                        text: 'EVASÃO IFPB-CG',
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        corText: Colors.green,
+                      )
                     ],
                   ),
                 ),
@@ -106,6 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     right: 20,
                   ),
                   child: TextField(
+                    cursorColor: Colors.red,
                     focusNode: textFocusNodeEmail,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
@@ -123,7 +128,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.email),
+                      prefixIcon: const Icon(
+                        Icons.email,
+                        color: Colors.grey,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
@@ -134,6 +142,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       filled: true,
                       hintStyle: TextStyle(
                         color: Colors.blueGrey[300],
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            const BorderSide(color: Colors.red, width: 2),
                       ),
                       hintText: "Email",
                       fillColor: Colors.white,
@@ -154,6 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     right: 20,
                   ),
                   child: TextField(
+                    cursorColor: Colors.red,
                     focusNode: textFocusNodePassword,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.done,
@@ -172,7 +186,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock_sharp),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            const BorderSide(color: Colors.red, width: 2),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.lock_sharp,
+                        color: Colors.grey,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
@@ -208,18 +230,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: double.maxFinite,
                           child: TextButton(
                             style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(Colors.green),
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.green),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                    )
-                                )
-                            ),
+                                  borderRadius: BorderRadius.circular(18.0),
+                                ))),
                             onPressed: () async {
                               showDialog(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    return const Center(child: CircularProgressIndicator(),);
+                                    return const Center(
+                                      child: CircularProgressIndicator(
+                                        //backgroundColor: Colors.green,
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                                Colors.white),
+                                      ),
+                                    );
                                   });
                               await loginAction();
                               Navigator.pop(context);
@@ -228,27 +257,38 @@ class _LoginScreenState extends State<LoginScreen> {
                                 textFocusNodeEmail.unfocus();
                                 textFocusNodePassword.unfocus();
                               });
-                              if (_validateEmail(textControllerEmail.text) == null &&
-                                  _validatePassword(textControllerPassword.text) == null) {
-                                if(textControllerEmail.text == "evasaoifpbcg@gmail.com" &&
-                                    textControllerPassword.text == "projetoevasao"){
-                                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                              if (_validateEmail(textControllerEmail.text) ==
+                                      null &&
+                                  _validatePassword(
+                                          textControllerPassword.text) ==
+                                      null) {
+                                if (textControllerEmail.text ==
+                                        "admin@admin.com" &&
+                                    textControllerPassword.text ==
+                                        "adminevasao") {
+                                  Navigator.of(context)
+                                      .pushReplacement(MaterialPageRoute(
                                     fullscreenDialog: true,
                                     builder: (context) => const BasePage(),
                                   ));
-                                }else{
+                                } else {
                                   const snackBar = SnackBar(
-                                    content: CustomText(text: 'Email ou senha incorreto.'),
+                                    content: CustomText(
+                                        text: 'Email ou senha incorreto.'),
                                     backgroundColor: Colors.red,
                                   );
-                                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
                                 }
-                              }else{
+                              } else {
                                 const snackBar = SnackBar(
-                                  content: CustomText(text: 'Preencha os dados da forma correta.'),
+                                  content: CustomText(
+                                      text:
+                                          'Preencha os dados da forma correta.'),
                                   backgroundColor: Colors.red,
                                 );
-                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
                               }
                               setState(() {
                                 _isLoggingIn = false;
@@ -265,23 +305,23 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               child: _isLoggingIn
                                   ? const SizedBox(
-                                height: 16,
-                                width: 16,
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  valueColor:
-                                  AlwaysStoppedAnimation<Color>(
-                                    Colors.white,
-                                  ),
-                                ),
-                              )
+                                      height: 16,
+                                      width: 16,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          Colors.white,
+                                        ),
+                                      ),
+                                    )
                                   : const Text(
-                                'Entrar',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                ),
-                              ),
+                                      'Entrar',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                             ),
                           ),
                         ),
@@ -292,13 +332,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-        )
-    );
+        ));
   }
 
   Future<bool> loginAction() async {
     await Future.delayed(const Duration(seconds: 1));
     return true;
   }
-
 }

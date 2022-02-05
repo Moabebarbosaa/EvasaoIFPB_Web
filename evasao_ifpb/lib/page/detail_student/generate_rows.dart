@@ -6,10 +6,10 @@ DataRow generateRows(List<String> variables,List<Object> data){
 
   for(int i=0; i<variables.length; i++){
     rowCells.add(
-      DataCell(
-          Text(variables[i],
-        style: const TextStyle(fontWeight: FontWeight.bold),)
-      )
+        DataCell(
+            Text(variables[i],
+              style: const TextStyle(fontWeight: FontWeight.bold),)
+        )
     );
     rowCells.add(
         DataCell(Text(data[i].toString()))
