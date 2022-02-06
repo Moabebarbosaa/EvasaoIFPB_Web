@@ -5,8 +5,8 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 class CustomPieChart extends StatelessWidget {
 
   final String charTitle;
-  final int pieData_1;
-  final int pieData_2;
+  final double pieData_1;
+  final double pieData_2;
   final String pieLabelData_1;
   final String pieLabelData_2;
 

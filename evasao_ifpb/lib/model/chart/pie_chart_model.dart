@@ -2,7 +2,7 @@ import 'dart:ui';
 
 class PieChartModel {
 
-  final int qtd;
+  final double qtd;
   final String nome;
   final Color? color;
 

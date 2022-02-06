@@ -2,10 +2,10 @@ import 'package:evasao_ifpb/page/base/components/custom_drawer.dart';
 import 'package:evasao_ifpb/page/base/components/mobile_app_bar.dart';
 import 'package:evasao_ifpb/page/base/components/web_app_bar.dart';
 import 'package:evasao_ifpb/page/home/home_page.dart';
-import 'package:evasao_ifpb/page/login/login_page.dart';
 import 'package:evasao_ifpb/page/metrics/metrics_page.dart';
 import 'package:evasao_ifpb/page/students/students_page.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
+import 'package:evasao_ifpb/store/student_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
@@ -21,6 +21,7 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   final PageController pageController = PageController();
   final PageStore pageStore = GetIt.I<PageStore>();
+  final StudentStore _studentController = GetIt.I<StudentStore>();
 
   @override
   void initState() {
@@ -47,6 +48,7 @@ class _BasePageState extends State<BasePage> {
            if (pageStore.page == 0) {
              return HomePage();
            } else if (pageStore.page == 1) {
+             _studentController.fetchAllStudents('');
             return StudentsPage();
           } else if (pageStore.page == 2) {
             return MetricsPage();

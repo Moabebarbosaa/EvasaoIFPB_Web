@@ -47,6 +47,8 @@ abstract class _StudentStore with Store {
       final resultStudents =
           await StudentsRepository().fetchAllStudents(course);
       if (students.isNotEmpty) students = ObservableList<StudentModel>();
+      students.clear();
+      studentsAux.clear();
       students.addAll(resultStudents.students);
       studentsAux.addAll(resultStudents.students);
       loadingStudentPage = false;
@@ -55,11 +57,20 @@ abstract class _StudentStore with Store {
     }
   }
 
+  int fetchStudentByMatricula(String matricual) {
+    for (var value in students) {
+      if (value.matricula == matricual) {
+        return value.id;
+      }
+    }
+    return -1;
+  }
+
   @action
-  Future<void> fetchStudentById(int id) async {
+  Future<void> fetchStudentById(String matricula) async {
     try {
       loadingStudentPage = true;
-      final result = await StudentsRepository().fetchStudentById(id);
+      final result = await StudentsRepository().fetchStudentById(fetchStudentByMatricula(matricula));
       studentModel = result;
       loadingStudentPage = false;
     } catch (e) {

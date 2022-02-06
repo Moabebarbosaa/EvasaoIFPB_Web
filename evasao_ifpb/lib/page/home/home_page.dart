@@ -97,8 +97,10 @@ class HomePage extends StatelessWidget {
                     children: [
                       CustomPieChart(
                         charTitle: 'SEXO',
-                        pieData_1: homeStore.dataModel!.sexo.masculino,
-                        pieData_2: homeStore.dataModel!.sexo.feminino,
+                        pieData_1: double.parse((100 * homeStore.dataModel!.sexo.masculino /
+                            homeStore.dataModel!.total).toStringAsFixed(2)),
+                        pieData_2: double.parse((100 * homeStore.dataModel!.sexo.feminino /
+                            homeStore.dataModel!.total).toStringAsFixed(2)),
                         pieLabelData_1: 'Maculino',
                         pieLabelData_2: 'Feminino',
                       ),
@@ -126,8 +128,10 @@ class HomePage extends StatelessWidget {
 
                       CustomPieChart(
                         charTitle: 'COTA',
-                        pieData_1: homeStore.dataModel!.cota.sim,
-                        pieData_2: homeStore.dataModel!.cota.nao,
+                        pieData_1: double.parse((100 * homeStore.dataModel!.cota.sim /
+                            homeStore.dataModel!.total).toStringAsFixed(2)),
+                        pieData_2: double.parse((100 * homeStore.dataModel!.cota.nao /
+                            homeStore.dataModel!.total).toStringAsFixed(2)),
                         pieLabelData_1: 'Sim',
                         pieLabelData_2: 'Não',
                       ),
@@ -244,8 +248,10 @@ class HomePage extends StatelessWidget {
 
                       CustomPieChart(
                         charTitle: 'EVASÃO',
-                        pieData_1: homeStore.dataModel!.evasao.sim,
-                        pieData_2: homeStore.dataModel!.evasao.nao,
+                        pieData_1: double.parse((100 * homeStore.dataModel!.evasao.sim /
+                            homeStore.dataModel!.total).toStringAsFixed(2)),
+                        pieData_2: double.parse((100 * homeStore.dataModel!.evasao.nao /
+                            homeStore.dataModel!.total).toStringAsFixed(2)),
                         pieLabelData_1: 'Sim',
                         pieLabelData_2: 'Não',
                       ),

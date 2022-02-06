@@ -14,7 +14,7 @@ final kDioOptions = BaseOptions(
 );
 
 final metricsOptions = BaseOptions(
-    baseUrl: 'http://127.0.0.1:5000',//'http://143.198.112.106:8000',
+    baseUrl: 'http://143.198.112.106:8080/',//'http://143.198.112.106:8000',
     connectTimeout: 5000,
     receiveTimeout: 3000,
     contentType: 'application/json;charset=utf-8',

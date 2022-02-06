@@ -68,8 +68,9 @@ mixin _$StudentStore on _StudentStore, Store {
       AsyncAction('_StudentStore.fetchStudentById');
 
   @override
-  Future<void> fetchStudentById(int id) {
-    return _$fetchStudentByIdAsyncAction.run(() => super.fetchStudentById(id));
+  Future<void> fetchStudentById(String matricula) {
+    return _$fetchStudentByIdAsyncAction
+        .run(() => super.fetchStudentById(matricula));
   }
 
   final _$_StudentStoreActionController =
