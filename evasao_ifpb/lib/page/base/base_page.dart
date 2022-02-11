@@ -1,6 +1,7 @@
 import 'package:evasao_ifpb/page/base/components/custom_drawer.dart';
 import 'package:evasao_ifpb/page/base/components/mobile_app_bar.dart';
 import 'package:evasao_ifpb/page/base/components/web_app_bar.dart';
+import 'package:evasao_ifpb/page/detail_student/detail_student_page.dart';
 import 'package:evasao_ifpb/page/home/home_page.dart';
 import 'package:evasao_ifpb/page/metrics/metrics_page.dart';
 import 'package:evasao_ifpb/page/students/students_page.dart';
@@ -52,6 +53,8 @@ class _BasePageState extends State<BasePage> {
             return StudentsPage();
           } else if (pageStore.page == 2) {
             return MetricsPage();
+          } else if (pageStore.page == 3) {
+             return DetailStudentPage();
           } else {
              return Container();
            }

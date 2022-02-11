@@ -97,7 +97,7 @@ abstract class _MetricsStore with Store {
           dif_ensMedio +
           '/' +
           idade);
-      metricsModel = 'Você tem ' + double.parse(result.probability).toStringAsFixed(2) + '%' + ' de chance de evadir!';
+      metricsModel = 'Um aluno com esses dados tem ' + double.parse(result.probability).toStringAsFixed(2) + '% de evadir!';
       loadingStudentPage = false;
     } catch (e) {
       loadingStudentPage = true;

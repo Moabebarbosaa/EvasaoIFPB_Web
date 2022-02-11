@@ -27,18 +27,18 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return SelectableText(
       text,
       maxLines: maxLines,
       textAlign: textAlign,
       style: TextStyle(
+        overflow: overflow,
         color: corText,
         fontSize: fontSize,
         //fontFamily: 'opensans',
         fontWeight: fontWeight,
         decoration: textDecoration,
       ),
-      overflow: overflow,
     );
   }
 }

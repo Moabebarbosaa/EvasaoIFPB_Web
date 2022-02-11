@@ -1,10 +1,15 @@
 import 'package:evasao_ifpb/page/students/components/search.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../../components/custom_text.dart';
+import '../../../store/student_store.dart';
 import 'custom_radio.dart';
 
 class CustomHeader extends StatelessWidget {
-  const CustomHeader({Key? key}) : super(key: key);
+  CustomHeader({Key? key}) : super(key: key);
+
+  final StudentStore _studentController = GetIt.I<StudentStore>();
 
   @override
   Widget build(BuildContext context) {

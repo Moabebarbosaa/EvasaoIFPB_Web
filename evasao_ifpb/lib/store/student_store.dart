@@ -67,10 +67,10 @@ abstract class _StudentStore with Store {
   }
 
   @action
-  Future<void> fetchStudentById(String matricula) async {
+  Future<void> fetchStudentById(String id) async {
     try {
       loadingStudentPage = true;
-      final result = await StudentsRepository().fetchStudentById(fetchStudentByMatricula(matricula));
+      final result = await StudentsRepository().fetchStudentById(int.parse(id));
       studentModel = result;
       loadingStudentPage = false;
     } catch (e) {

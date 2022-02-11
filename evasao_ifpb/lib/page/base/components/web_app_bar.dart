@@ -6,10 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../store/student_store.dart';
+
 class WebAppBar extends StatelessWidget {
   WebAppBar({Key? key}) : super(key: key);
 
   final PageStore pageStore = GetIt.I<PageStore>();
+  final StudentStore _studentController = GetIt.I<StudentStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +55,9 @@ class WebAppBar extends StatelessWidget {
               title: "Alunos",
               onPressed: () {
                 pageStore.page = 1;
+                _studentController.setValorRatio(0);
               },
-              selected: pageStore.page == 1 ? true : false,
+              selected: pageStore.page == 1 || pageStore.page == 3 ? true : false,
             ),
             MenuItem(
               title: "Probabilidade",
@@ -71,7 +75,7 @@ class WebAppBar extends StatelessWidget {
                   builder: (context) => const LoginScreen(),
                 ));
               },
-              selected: pageStore.page == 3 ? true : false,
+              selected: pageStore.page == 4 ? true : false,
             ),
           ],
         );

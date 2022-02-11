@@ -167,6 +167,7 @@ class _CustomRadioState extends State<CustomRadio> {
           ),
 
           const SizedBox(width: 10),
+
         ],
       ),
     );

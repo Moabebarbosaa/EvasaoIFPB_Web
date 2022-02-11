@@ -46,6 +46,7 @@ class StudentModel {
       StudentModel.fromMap(json.decode(str));
 
   factory StudentModel.fromMap(Map<String, dynamic> json) {
+
     return StudentModel(
       id: json["id"],
       matricula: json["matricula"],

@@ -77,18 +77,6 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height / 100,
-                ),
-                const CustomText(
-                  text:
-                  "Todos os valores dos gráficos estão em porcentagem.",
-                  fontSize: 14,
-                  corText: Colors.white,
-                ),
                 Padding(
                   padding: const EdgeInsets.all(40),
                   child: Wrap(
@@ -96,7 +84,7 @@ class HomePage extends StatelessWidget {
                     alignment: WrapAlignment.center,
                     children: [
                       CustomPieChart(
-                        charTitle: 'SEXO',
+                        charTitle: 'SEXO (%)',
                         pieData_1: double.parse((100 * homeStore.dataModel!.sexo.masculino /
                             homeStore.dataModel!.total).toStringAsFixed(2)),
                         pieData_2: double.parse((100 * homeStore.dataModel!.sexo.feminino /
@@ -123,11 +111,11 @@ class HomePage extends StatelessWidget {
                               100 * homeStore.dataModel!.cre.oitenta_cem ~/
                                   homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'CRE',
+                        chartTitle: 'CRE (%)',
                       ),
 
                       CustomPieChart(
-                        charTitle: 'COTA',
+                        charTitle: 'COTA (%)',
                         pieData_1: double.parse((100 * homeStore.dataModel!.cota.sim /
                             homeStore.dataModel!.total).toStringAsFixed(2)),
                         pieData_2: double.parse((100 * homeStore.dataModel!.cota.nao /
@@ -160,7 +148,7 @@ class HomePage extends StatelessWidget {
                               100 * homeStore.dataModel!.idade.ciquentaMais ~/
                                   homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'IDADE',
+                        chartTitle: 'IDADE (%)',
                       ),
 
                       CustomBarChart(
@@ -178,7 +166,7 @@ class HomePage extends StatelessWidget {
                               homeStore.dataModel!.faixaRenda.naoDeclarada ~/
                               homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'FAIXA DE RENDA',
+                        chartTitle: 'FAIXA DE RENDA (%)',
                       ),
 
                       CustomColumnChart(
@@ -211,7 +199,7 @@ class HomePage extends StatelessWidget {
                               homeStore.dataModel!.matematicaEnem
                                   .naoInformado ~/ homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'MÉDIA ENEM',
+                        chartTitle: 'MÉDIA ENEM (%)',
                       ),
 
                       CustomColumnChart(
@@ -243,11 +231,11 @@ class HomePage extends StatelessWidget {
                               homeStore.dataModel!.mediaEnem.naoInformado ~/
                               homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'MÉDIA ENEM MATEMÁTICA',
+                        chartTitle: 'MÉDIA ENEM MATEMÁTICA (%)',
                       ),
 
                       CustomPieChart(
-                        charTitle: 'EVASÃO',
+                        charTitle: 'EVASÃO (%)',
                         pieData_1: double.parse((100 * homeStore.dataModel!.evasao.sim /
                             homeStore.dataModel!.total).toStringAsFixed(2)),
                         pieData_2: double.parse((100 * homeStore.dataModel!.evasao.nao /
@@ -286,7 +274,7 @@ class HomePage extends StatelessWidget {
                                   .quinze_vintecinco ~/
                               homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'REPROVAÇÃO POR NOTA',
+                        chartTitle: 'REPROVAÇÃO POR NOTA (%)',
                       ),
 
                       CustomColumnChart(
@@ -316,7 +304,7 @@ class HomePage extends StatelessWidget {
                               homeStore.dataModel!.reprovacaoFalta.seis_dez ~/
                               homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'REPROVAÇÃO POR FALTA',
+                        chartTitle: 'REPROVAÇÃO POR FALTA (%)',
                       ),
                     ],
                   ),

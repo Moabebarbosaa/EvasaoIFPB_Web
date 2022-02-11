@@ -1,6 +1,5 @@
 import 'package:evasao_ifpb/components/custom_text.dart';
 import 'package:evasao_ifpb/model/student_model.dart';
-import 'package:evasao_ifpb/page/detail_student/show_dialog.dart';
 import 'package:evasao_ifpb/page/students/components/custom_header.dart';
 import 'package:evasao_ifpb/store/student_store.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,8 +9,11 @@ import 'package:get_it/get_it.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 
+import '../../store/page_store.dart';
+
 class StudentsPage extends StatelessWidget {
   final StudentStore _studentController = GetIt.I<StudentStore>();
+  final PageStore pageStore = GetIt.I<PageStore>();
   late StudentDataSource _studentDataSource;
 
   StudentsPage({Key? key}) : super(key: key);
@@ -23,7 +25,7 @@ class StudentsPage extends StatelessWidget {
       return Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          const CustomHeader(),
+          CustomHeader(),
           _studentController.loadingStudentPage
               ? const Expanded(
             child: Center(
@@ -51,13 +53,13 @@ class StudentsPage extends StatelessWidget {
                     columnWidthMode: ColumnWidthMode.fill,
                     columns: [
                       GridColumn(
-                        columnName: 'matricula',
+                        columnName: 'id',
                         label: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16.0),
                           alignment: Alignment.center,
                           child: const CustomText(
-                            text: 'MATRÍCULA',
+                            text: 'ID',
                             fontWeight: FontWeight.bold,
                             corText: Colors.white,
                             fontSize: 15,
@@ -102,7 +104,7 @@ class StudentsPage extends StatelessWidget {
                               horizontal: 16.0),
                           alignment: Alignment.center,
                           child: const CustomText(
-                            text: 'RISCO',
+                            text: 'RISCO (%)',
                             fontWeight: FontWeight.bold,
                             corText: Colors.white,
                             fontSize: 15,
@@ -111,28 +113,15 @@ class StudentsPage extends StatelessWidget {
                         ),
                       )
                     ],
-                    allowSorting: true,
-                    allowMultiColumnSorting: true,
-
-                    onCellTap: (DataGridCellDetails details) {
-
+                    onCellTap: (DataGridCellDetails details) async {
                       if (details.rowColumnIndex.rowIndex != 0) {
-                        _studentController.fetchStudentById(_studentDataSource.dataGridRows[details.rowColumnIndex.rowIndex - 1].getCells()[0].value);
-                        showGeneralDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          barrierColor: Colors.black54,
-                          transitionDuration: const Duration(milliseconds: 400),
-                          transitionBuilder: (context, a1, a2, child) {
-                            return bodyShowDialog(a1);
-                          },
-                          pageBuilder: (BuildContext context, Animation animation,
-                              Animation secondaryAnimation) {
-                            return const Center();
-                          },
-                        );
+                        await _studentController.fetchStudentById(_studentDataSource.dataGridRows[details.rowColumnIndex.rowIndex - 1].getCells()[0].value);
+                        if(_studentController.studentModel!=null){
+                          pageStore.page = 3;
+                        }
                       }
                     },
+
                   ),
                 ),
               ),
@@ -151,7 +140,7 @@ class StudentDataSource extends DataGridSource {
     dataGridRows = students
         .map<DataGridRow>((dataGridRow) => DataGridRow(cells: [
               DataGridCell<String>(
-                  columnName: 'matricula', value: dataGridRow.matricula),
+                  columnName: 'id', value: dataGridRow.id.toString()),
               DataGridCell<String>(
                   columnName: 'curso', value: dataGridRow.curso),
               DataGridCell<String>(
