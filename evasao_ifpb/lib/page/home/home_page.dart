@@ -180,8 +180,9 @@ class HomePage extends StatelessWidget {
                                   .quatrocentos_quinhentos ~/
                               homeStore.dataModel!.total),
                           ColumnChartModel("500-600", 100 *
-                              homeStore.dataModel!.matematicaEnem
-                                  .quinhentos_seiscentos ~/
+                              (homeStore.dataModel!.matematicaEnem
+                                  .quinhentos_seiscentos + homeStore.dataModel!.matematicaEnem
+                                  .naoInformado) ~/
                               homeStore.dataModel!.total),
                           ColumnChartModel("600-700", 100 *
                               homeStore.dataModel!.matematicaEnem
@@ -195,11 +196,8 @@ class HomePage extends StatelessWidget {
                               homeStore.dataModel!.matematicaEnem
                                   .maisOitocentos ~/
                               homeStore.dataModel!.total),
-                          ColumnChartModel("Não Informado", 100 *
-                              homeStore.dataModel!.matematicaEnem
-                                  .naoInformado ~/ homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'MÉDIA ENEM (%)',
+                        chartTitle: 'MÉDIA ENEM MATEMÁTICA(%)',
                       ),
 
                       CustomColumnChart(
@@ -213,8 +211,8 @@ class HomePage extends StatelessWidget {
                                   .quatrocentos_quinhentos ~/
                               homeStore.dataModel!.total),
                           ColumnChartModel("500-600", 100 *
-                              homeStore.dataModel!.mediaEnem
-                                  .quinhentos_seiscentos ~/
+                              (homeStore.dataModel!.mediaEnem
+                                  .quinhentos_seiscentos + homeStore.dataModel!.mediaEnem.naoInformado) ~/
                               homeStore.dataModel!.total),
                           ColumnChartModel("600-700", 100 *
                               homeStore.dataModel!.mediaEnem
@@ -227,11 +225,8 @@ class HomePage extends StatelessWidget {
                           ColumnChartModel(">=800", 100 *
                               homeStore.dataModel!.mediaEnem.maisOitocentos ~/
                               homeStore.dataModel!.total),
-                          ColumnChartModel("Não Informado", 100 *
-                              homeStore.dataModel!.mediaEnem.naoInformado ~/
-                              homeStore.dataModel!.total),
                         ],
-                        chartTitle: 'MÉDIA ENEM MATEMÁTICA (%)',
+                        chartTitle: 'MÉDIA ENEM (%)',
                       ),
 
                       CustomPieChart(

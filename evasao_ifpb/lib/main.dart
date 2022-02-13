@@ -1,10 +1,6 @@
 import 'package:evasao_ifpb/page/base/base_page.dart';
-import 'package:evasao_ifpb/page/detail_student/detail_student_page.dart';
-import 'package:evasao_ifpb/page/home/home_page.dart';
 import 'package:evasao_ifpb/page/login/login_page.dart';
-import 'package:evasao_ifpb/page/students/students_page.dart';
 import 'package:evasao_ifpb/store/home_store.dart';
-import 'package:evasao_ifpb/store/metrics_store.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
 import 'package:evasao_ifpb/store/student_store.dart';
 import 'package:flutter/material.dart';
@@ -26,9 +22,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      color: Colors.green,
       title: "Evasão IFPB-CG",
       debugShowCheckedModeBanner: false,
-      home: BasePage()//LoginScreen(),
+      home: LoginScreen()//LoginScreen(),
     );
   }
 }
