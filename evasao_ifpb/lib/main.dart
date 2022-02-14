@@ -1,5 +1,6 @@
 import 'package:evasao_ifpb/page/base/base_page.dart';
 import 'package:evasao_ifpb/page/login/login_page.dart';
+import 'package:evasao_ifpb/page/students/students_page.dart';
 import 'package:evasao_ifpb/store/home_store.dart';
 import 'package:evasao_ifpb/store/page_store.dart';
 import 'package:evasao_ifpb/store/student_store.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       color: Colors.green,
       title: "Evasão IFPB-CG",
       debugShowCheckedModeBanner: false,
-      home: LoginScreen()//LoginScreen(),
+      // home: LoginScreen()//LoginScreen(),
+      home: BasePage(),
     );
   }
 }

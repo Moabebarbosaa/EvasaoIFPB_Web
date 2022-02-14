@@ -18,7 +18,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      keyboardType: TextInputType.number,
+      keyboardType: TextInputType.text,
       inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.allow(RegExp(r'^(\d+)?\.?\d{0,2}'))
       ],

@@ -23,9 +23,10 @@ class CustomHeader extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.9,
             margin: const EdgeInsets.all(30),
             child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
+              alignment: WrapAlignment.center,
               children: [
                 const CustomRadio(),
+                const Divider(color: Colors.white,),
                 Search(),
               ],
             ),
